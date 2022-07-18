@@ -10,16 +10,12 @@ int main(){
     char star = '*';
     int count = 0;
     bool start_counting = true;
-    bool start_pair = false;
+
     for(int i =0;i<input.length();i++){
-        if(input[i] == '|' && start_pair == false){
-            start_counting = false;
-            start_pair = true;
+        if(input[i] == '|'){
+            start_counting = !start_counting;
         }
-        else if(input[i] == '|' && start_pair == true){
-            start_counting = true; 
-            start_pair = false;   
-        }
+        
         if(start_counting == true && input[i] == star){
             ++count;
         }
